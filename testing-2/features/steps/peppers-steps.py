@@ -1,4 +1,4 @@
-from behave import given, when, then
+from behave import Given, When, Then
 from selenium.webdriver import *
 from selenium.webdriver.common.by import By
 
