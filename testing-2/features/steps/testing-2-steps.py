@@ -22,18 +22,30 @@ def step_go_to_restauraunt(context):
     context.behave_driver.execute_script("arguments[0].click()", auntie_anne_link)
     assert context.behave_driver.current_url == "https://slcairport.com/dining-and-shopping/dining/auntie-annes"
 
+@Then("I want to navigate to the about the airport page")
+def step_navigate_to_about_airport(context):
+    context.behave_driver.click_element(".quick-buttons > .quick-button:nth-child(6)")
+    assert context.behave_driver.current_url == "https://slcairport.com/about-the-airport/"
+
 @Then("I want to open the language menu")
 def open_language_menu(context):
     context.behave_driver.click_element("a.VIpgJd-ZVi9od-xl07Ob-lTBxed")
     language_element = context.behave_driver.find_element(By.CSS_SELECTOR, "iframe.VIpgJd-ZVi9od-xl07Ob-OEVmcd")
-    context.behave_driver.pause(100)
+    #context.behave_driver.pause(500)
     assert language_element.is_displayed() == True
+    #context.behave_driver.pause(500)
 
 @Then("I want to translate the website to arabic")
 def step_translate_to_arabic(context):
+    context.behave_driver.pause(1000)
     iframe = context.behave_driver.find_element(By.CSS_SELECTOR, "iframe.VIpgJd-ZVi9od-xl07Ob-OEVmcd")
     context.behave_driver.switch_to.frame(iframe)
     context.behave_driver.click_element("tbody > tr td:nth-child(1) a:nth-child(2)")
+    context.behave_driver.switch_to.default_content()
+    context.behave_driver.pause(5000)
+    exit_frame = context.behave_driver.find_element(By.CSS_SELECTOR, "div.skiptranslate > iframe")
+    context.behave_driver.switch_to.frame(exit_frame)
+    context.behave_driver.click_element("a.VIpgJd-ZVi9od-TvD9Pc-hSRGPd")
 
     context.behave_driver.switch_to.default_content()
 
@@ -84,3 +96,33 @@ def step_look_at_airlines(context):
     context.behave_driver.click_element(".quick-buttons > .quick-button:nth-child(1)")
 
     assert context.behave_driver.current_url == "https://slcairport.com/airlines-flights/"
+
+@Then("I want to visit the Salt Lake City government website")
+def step_visit_salt_lake_government(context):
+    context.behave_driver.click_element("#slcgov-site-button")
+
+    assert context.behave_driver.current_url == "https://www.slc.gov/?ref=slcairport.com"
+@Then("I want to make sure the promotional video is correct")
+def step_check_promotional_video(context):
+    video_element = context.behave_driver.find_element(By.CSS_SELECTOR, ".background-video-wrapper > iframe")
+    assert video_element.get_attribute("src") == "https://player.vimeo.com/video/1020761903?h=81521909d5&api=1&background=1&autoplay=1&loop=1&autopause=0&muted=1"
+
+@Then("I want to make sure the airport logo is displayed")
+def step_check_airport_logo(context):
+    logo_element = context.behave_driver.find_element(By.CSS_SELECTOR, "img.logo-responsive")
+
+    assert logo_element.get_attribute("src") == "https://slcairport.com/dist/img/slc-intl-airport-logo.png"
+
+@Then("I want to navigate to the accessibility page using the header button")
+def step_navigate_to_accessibility(context):
+    context.behave_driver.click_element(".header-access > a")
+    assert context.behave_driver.current_url == "https://slcairport.com/customer-assistance/accessibility/"
+
+@Then("I want to navigate to the medical assistance page")
+def step_navigate_to_medical_assistance(context):
+    #for whatever reason the link is not visible at smaller sizes so the console needs to send the click
+    link_element = context.behave_driver.find_element(By.CSS_SELECTOR, "#collapseSidebarNav > ul > li:nth-child(2) > a")
+    context.behave_driver.execute_script("arguments[0].click()", link_element)
+    #context.behave_driver.click_element("#collapseSidebarNav > ul > li:nth-child(2) > a")
+
+    assert context.behave_driver.current_url == "https://slcairport.com/customer-assistance/medical-assistance/"

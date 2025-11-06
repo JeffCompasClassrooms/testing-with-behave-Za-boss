@@ -1,4 +1,4 @@
-Feature: Peppers Ghost DIY Project with custom steps
+Feature: Testing the Salt Lake City airport website
     As a [ROLE]
     I want to [GOAL]
     So that [REASON]
@@ -6,12 +6,25 @@ Feature: Peppers Ghost DIY Project with custom steps
 Scenario: I want to make sure the front page slogan is correct
     Given I open the Salt Lake City airport website
     Then I expect that the main page has the correct slogan
+Scenario: I want to make sure the promotional video on the home page is correct
+    Given I open the Salt Lake City airport website
+    Then I want to make sure the promotional video is correct
+Scenario: I want to make sure the salt lake city airport logo is displayed
+    Given I open the Salt Lake City airport website
+    Then I want to make sure the airport logo is displayed
 Scenario: I want to look at Auntie Anne's restaurant
     Given I open the Salt Lake City airport website
     Then I want to look at Auntie Anne's restaurant
-Scenario: I want to open the language menu to see what languages I can translate the site into
+Scenario: I want to navigate to accessibility using the header button
     Given I open the Salt Lake City airport website
-    Then I want to open the language menu
+    Then I want to navigate to the accessibility page using the header button
+Scenario: I want to view the medical assistance page
+    Given I open the Salt Lake City airport website
+    Then I want to navigate to the accessibility page using the header button
+    Then I want to navigate to the medical assistance page
+Scenario: I want to view more information about the airport
+    Given I open the Salt Lake City airport website
+    Then I want to navigate to the about the airport page
 Scenario: I want to translate the website into Arabic
     Given I open the Salt Lake City airport website
     Then I want to open the language menu
@@ -34,16 +47,9 @@ Scenario: I want to search for travelling tips using the builtin search
     Given I open the Salt Lake City airport website
     Then I want to open up the search bar
     Then I want to navigate to Travel Tips
-Scenario: I want to look at the airlines  that service the Salt Lake City Airport
+Scenario: I want to look at the airlines that service the Salt Lake City Airport
     Given I open the Salt Lake City airport website
     Then I want to look at the airlines that service SLC
-# Scenario: [SCENARIO]
-#  [STUFF]
-# Scenario: [SCENARIO]
-#  [STUFF]
-# Scenario: [SCENARIO]
-#  [STUFF]
-# Scenario: [SCENARIO]
-#  [STUFF]
-# Scenario: [SCENARIO]
-#  [STUFF]
+Scenario: I want to visit the website for the Salt Lake City government
+    Given I open the Salt Lake City airport website
+    Then I want to visit the Salt Lake City government website
