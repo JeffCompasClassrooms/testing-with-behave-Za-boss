@@ -1,7 +1,7 @@
 Feature: Testing with builtin behave commands
-  As a [ROLE]
-  I want to [GOAL]
-  So that I [REASON]
+  As a curious individual
+  I want to browse wikipedia
+  So that I can learn about topics I'm interested in.
 
   Scenario: I want to navigate to wikimedia
     Given I open the url "https://www.wikipedia.org/"
@@ -57,6 +57,7 @@ Feature: Testing with builtin behave commands
 
   Scenario: I want to view wikipedia's creative commons license
     Given I open the url "https://www.wikipedia.org/"
+    When I pause for 3000ms
     When I scroll to element ".jsl10n a"
     When I click on the link "Creative Commons Attribution-ShareAlike License" 
     Then I expect that the url is "https://creativecommons.org/licenses/by-sa/4.0/"
