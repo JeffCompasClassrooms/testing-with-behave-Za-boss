@@ -1,7 +1,7 @@
 Feature: Testing the Salt Lake City airport website
-    As a [ROLE]
-    I want to [GOAL]
-    So that [REASON]
+    As a traveler
+    I want to browse the Salt Lake City airport website
+    So that I can see what's available at the airport
 
 Scenario: I want to make sure the front page slogan is correct
     Given I open the Salt Lake City airport website
