@@ -59,7 +59,7 @@ def step_open_hamburger_menu(context):
 
 @Then("I want to look at customer service")
 def step_go_to_customer_service(context):
-    context.behave_driver.click_link_text("Customer Assistance")
+    context.behave_driver.click_element("#main-nav > div.container > div.main-menu > ul > li:nth-child(6) > a")
 
     assert context.behave_driver.current_url == "https://slcairport.com/customer-assistance/"
 
